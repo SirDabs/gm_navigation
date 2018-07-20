@@ -56,8 +56,6 @@ solution "navigation"
 			
 		files 	{ "navigation/sources/**.cpp","navigation/sources/**.c"}
 		links{
-		"../source-sdk-2013/mp/src/lib/public/linux32/mathlib",
 		"../source-sdk-2013/mp/src/lib/public/linux32/tier0",
-		"../source-sdk-2013/mp/src/lib/public/linux32/tier1",
 		"../source-sdk-2013/mp/src/lib/public/linux32/vstdlib"}
-		linkoptions { '' }
+		linkoptions { '-l:mathlib.a', '-l:tier1.a' }

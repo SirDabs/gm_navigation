@@ -22,9 +22,9 @@ ifeq ($(config),server)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m32 -O2 -fPIC -m32 -msse -std=gnu++0x
   ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m32 -O2 -fPIC -m32 -msse -std=gnu++0x
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  LIBS += -lmathlib -ltier0 -ltier1 -lvstdlib
+  LIBS += -ltier0 -lvstdlib
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib32 -L../../source-sdk-2013/mp/src/lib/public/linux32 -m32 -shared -Wl,-soname=gmsv_navigation_linux.dll -s 
+  ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib32 -L../../source-sdk-2013/mp/src/lib/public/linux32 -m32 -shared -Wl,-soname=gmsv_navigation_linux.dll -s -l:mathlib.a -l:tier1.a
   LINKCMD = $(CXX) -o "$@" $(OBJECTS) $(RESOURCES) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -49,9 +49,9 @@ ifeq ($(config),client)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m32 -O2 -fPIC -m32 -msse -std=gnu++0x
   ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m32 -O2 -fPIC -m32 -msse -std=gnu++0x
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  LIBS += -lmathlib -ltier0 -ltier1 -lvstdlib
+  LIBS += -ltier0 -lvstdlib
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib32 -L../../source-sdk-2013/mp/src/lib/public/linux32 -m32 -shared -Wl,-soname=gmcl_navigation_linux.dll -s 
+  ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib32 -L../../source-sdk-2013/mp/src/lib/public/linux32 -m32 -shared -Wl,-soname=gmcl_navigation_linux.dll -s -l:mathlib.a -l:tier1.a
   LINKCMD = $(CXX) -o "$@" $(OBJECTS) $(RESOURCES) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
